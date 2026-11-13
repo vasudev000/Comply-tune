@@ -60,10 +60,12 @@ function SuggestionCard({
     >
       <span
         className="compliance-suggestion__copy"
-        style={{ "--description-width": `${descriptionWidth}px` } as CSSProperties}
       >
         <span className="compliance-suggestion__title">{title}</span>
-        <span className="compliance-suggestion__description">
+        <span
+          className="compliance-suggestion__description"
+          style={{ "--description-width": `${descriptionWidth}px` } as CSSProperties}
+        >
           {descriptionLines.map((line) => (
             <span key={line}>{line}</span>
           ))}

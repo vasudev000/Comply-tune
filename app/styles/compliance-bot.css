@@ -293,7 +293,7 @@
   position: relative;
   z-index: 1;
   display: flex;
-  width: min(100%, var(--description-width, 196px));
+  width: min(100%, 196px);
   align-self: flex-start;
   flex-direction: column;
   gap: 10px;
@@ -306,11 +306,13 @@
   font-size: 15px;
   font-weight: var(--ds-font-weight-medium);
   line-height: 23px;
+  white-space: nowrap;
 }
 
 .compliance-suggestion__description {
   display: flex;
   flex-direction: column;
+  width: min(100%, var(--description-width, 196px));
   color: #8997a1;
   font-family: var(--ds-font-sans);
   font-size: 13px;
@@ -401,7 +403,7 @@
   }
 }
 
-@media (max-width: 680px) {
+@media (max-width: 760px) {
   .compliance-bot-page {
     align-items: start;
     padding: 34px 16px 24px;
