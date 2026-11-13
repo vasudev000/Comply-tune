@@ -34,10 +34,7 @@
   position: absolute;
   inset: 34px 0 0;
   background: url("/figma-assets/compliance-bot/mascot-grid-pattern.svg")
-    center / 170px 115px no-repeat;
-  filter: drop-shadow(0 0 10px rgb(125 0 232 / 65%));
-  mask: url("/figma-assets/compliance-bot/hero-decoration.svg") center / 170px
-    115px no-repeat;
+    center / 170px 133px no-repeat;
 }
 
 .compliance-bot-mascot img {
