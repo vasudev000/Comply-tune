@@ -277,7 +277,6 @@
 
 .compliance-suggestion:hover,
 .compliance-suggestion:focus-visible {
-  border-color: #5f2b84;
   background: #202020;
 }
 
@@ -325,11 +324,28 @@
   pointer-events: none;
 }
 
-.compliance-document img {
+.compliance-document__image {
+  position: absolute;
+  inset: 0;
   display: block;
   width: 100%;
   height: 100%;
   object-fit: contain;
+  transition: opacity 160ms ease;
+}
+
+.compliance-document__image--hover {
+  opacity: 0;
+}
+
+.compliance-suggestion:hover .compliance-document__image--default,
+.compliance-suggestion:focus-visible .compliance-document__image--default {
+  opacity: 0;
+}
+
+.compliance-suggestion:hover .compliance-document__image--hover,
+.compliance-suggestion:focus-visible .compliance-document__image--hover {
+  opacity: 0.4;
 }
 
 .compliance-bot-notice {

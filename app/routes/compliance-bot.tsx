@@ -19,18 +19,21 @@ const suggestedTopics = [
     descriptionLines: ["Regulations aimed at reduce", "environmental impact"],
     descriptionWidth: 179,
     illustration: "environmental.svg",
+    hoverIllustration: "environmental-hover.svg",
   },
   {
     title: "Data Privacy Compliance",
     descriptionLines: ["Ensure your data handling", "meets privacy regulations."],
     descriptionWidth: 163,
     illustration: "privacy.svg",
+    hoverIllustration: "privacy-hover.svg",
   },
   {
     title: "User Consent Management",
     descriptionLines: ["Track and manage user", "consent for data usage."],
     descriptionWidth: 146,
     illustration: "consent.svg",
+    hoverIllustration: "consent-hover.svg",
   },
 ];
 
@@ -49,6 +52,7 @@ function SuggestionCard({
   descriptionLines,
   descriptionWidth,
   illustration,
+  hoverIllustration,
   onSelect,
 }: (typeof suggestedTopics)[number] & { onSelect: () => void }) {
   return (
@@ -72,7 +76,16 @@ function SuggestionCard({
         </span>
       </span>
       <span className="compliance-document" aria-hidden="true">
-        <img src={`${assetRoot}/${illustration}`} alt="" />
+        <img
+          className="compliance-document__image compliance-document__image--default"
+          src={`${assetRoot}/${illustration}`}
+          alt=""
+        />
+        <img
+          className="compliance-document__image compliance-document__image--hover"
+          src={`${assetRoot}/${hoverIllustration}`}
+          alt=""
+        />
       </span>
     </button>
   );
