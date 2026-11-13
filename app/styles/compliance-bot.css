@@ -318,7 +318,7 @@
 .compliance-document {
   position: absolute;
   top: -17px;
-  right: -5px;
+  right: 5px;
   width: 187px;
   height: 184px;
   pointer-events: none;
@@ -413,7 +413,7 @@
 
   .compliance-document {
     left: auto;
-    right: -4px;
+    right: 6px;
   }
 }
 
