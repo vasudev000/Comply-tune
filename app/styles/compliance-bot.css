@@ -33,13 +33,11 @@
 .compliance-bot-mascot__grid {
   position: absolute;
   inset: 34px 0 0;
-  background-image:
-    repeating-linear-gradient(90deg, #7f00bb 0 5px, transparent 5px 6px),
-    repeating-linear-gradient(0deg, #670096 0 5px, transparent 5px 6px);
+  background: url("/figma-assets/compliance-bot/mascot-grid-pattern.svg")
+    center / 170px 115px no-repeat;
   filter: drop-shadow(0 0 10px rgb(125 0 232 / 65%));
   mask: url("/figma-assets/compliance-bot/hero-decoration.svg") center / 170px
     115px no-repeat;
-  opacity: 0.75;
 }
 
 .compliance-bot-mascot img {
@@ -49,13 +47,6 @@
   height: 150px;
   max-width: none;
   object-fit: contain;
-}
-
-.compliance-bot-mascot__grid::after {
-  position: absolute;
-  inset: -1px;
-  background: radial-gradient(ellipse, transparent 22%, #101010 100%);
-  content: "";
 }
 
 .compliance-bot-intro h1 {
