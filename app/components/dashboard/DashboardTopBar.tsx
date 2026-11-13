@@ -32,11 +32,17 @@ export function DashboardTopBar({
             <span className="h-[2px] rounded bg-current" />
           </span>
         </button>
-        <span className="hidden text-[#8e8e8e] sm:inline">Configuration</span>
-        <Icon
-          src="70682.svg"
-          className="hidden size-3 -rotate-90 opacity-70 sm:block"
-        />
+        {currentSection !== "Compliance Bot" && (
+          <>
+            <span className="hidden text-[#8e8e8e] sm:inline">
+              Configuration
+            </span>
+            <Icon
+              src="70682.svg"
+              className="hidden size-3 -rotate-90 opacity-70 sm:block"
+            />
+          </>
+        )}
         <Icon src={pageIcon} className="size-5" />
         <span className="truncate text-white">{currentSection}</span>
       </div>

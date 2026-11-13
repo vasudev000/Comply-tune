@@ -9,6 +9,7 @@ export function DashboardShell({
   children,
 }: {
   currentSection:
+    | "Compliance Bot"
     | "Location"
     | "Department"
     | "Employee’s"

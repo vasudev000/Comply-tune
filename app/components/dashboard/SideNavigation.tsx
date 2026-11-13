@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router";
 
 import { APP_TITLE } from "@/lib/app-config";
@@ -29,6 +29,7 @@ export function SideNavigation({
   onCloseMobile,
 }: {
   currentSection:
+    | "Compliance Bot"
     | "Location"
     | "Department"
     | "Employee’s"
@@ -37,7 +38,12 @@ export function SideNavigation({
   isOpen: boolean;
   onCloseMobile: () => void;
 }) {
-  const [configExpanded, setConfigExpanded] = useState(true);
+  const isConfigurationPage = currentSection !== "Compliance Bot";
+  const [configExpanded, setConfigExpanded] = useState(isConfigurationPage);
+
+  useEffect(() => {
+    setConfigExpanded(isConfigurationPage);
+  }, [isConfigurationPage]);
   return (
     <aside
       className={`${isOpen ? "fixed inset-y-0 left-0 z-40 flex w-[270px] shadow-2xl" : "hidden"} h-full min-h-0 shrink-0 flex-col overflow-y-auto overscroll-contain bg-[#101010] px-4 pb-4 pt-5 md:relative md:inset-auto md:left-auto md:z-auto md:flex md:w-[clamp(190px,18.75vw,270px)] md:shadow-none`}
@@ -70,22 +76,35 @@ export function SideNavigation({
         className="flex min-h-0 flex-1 flex-col justify-between"
       >
         <div className="space-y-[10px]">
-          {primaryNav.map(([label, icon]) => (
-            <button
-              key={label}
-              type="button"
-              className="flex h-9 w-full items-center gap-2 rounded-[8px] px-2 text-left text-[16px] tracking-[-0.096px] text-[#aaa] transition-colors hover:bg-[#1b1b1b] hover:text-white"
-            >
-              <Icon src={icon} className="size-5" />
-              {label}
-            </button>
-          ))}
+          {primaryNav.map(([label, icon]) =>
+            label === "Compliance Bot" ? (
+              <Link
+                key={label}
+                to="/compliance-bot"
+                onClick={onCloseMobile}
+                aria-current={currentSection === label ? "page" : undefined}
+                className={`flex h-9 w-full items-center gap-2 rounded-[8px] px-2 text-left text-[16px] tracking-[-0.096px] transition-colors ${currentSection === label ? "bg-[#7900e8] text-white shadow-[inset_0_2px_8px_rgba(190,102,255,0.42)]" : "text-[#aaa] hover:bg-[#1b1b1b] hover:text-white"}`}
+              >
+                <Icon src={icon} className="size-5" />
+                {label}
+              </Link>
+            ) : (
+              <button
+                key={label}
+                type="button"
+                className="flex h-9 w-full items-center gap-2 rounded-[8px] px-2 text-left text-[16px] tracking-[-0.096px] text-[#aaa] transition-colors hover:bg-[#1b1b1b] hover:text-white"
+              >
+                <Icon src={icon} className="size-5" />
+                {label}
+              </button>
+            ),
+          )}
           <div>
             <button
               type="button"
               aria-expanded={configExpanded}
               onClick={() => setConfigExpanded((value) => !value)}
-              className="flex h-9 w-full items-center justify-between rounded-[8px] border border-[#a32cff] bg-[#7900e8] px-2 text-left text-[16px] font-medium tracking-[-0.096px] text-white shadow-[inset_0_2px_8px_rgba(190,102,255,0.42)]"
+              className={`flex h-9 w-full items-center justify-between rounded-[8px] px-2 text-left text-[16px] tracking-[-0.096px] transition-colors ${isConfigurationPage ? "border border-[#a32cff] bg-[#7900e8] font-medium text-white shadow-[inset_0_2px_8px_rgba(190,102,255,0.42)]" : "text-[#aaa] hover:bg-[#1b1b1b] hover:text-white"}`}
             >
               <span className="flex items-center gap-2">
                 <Icon src="3743f.svg" className="size-5" />
