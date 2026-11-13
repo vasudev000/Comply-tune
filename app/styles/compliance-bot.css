@@ -33,17 +33,17 @@
 .compliance-bot-mascot__grid {
   position: absolute;
   top: calc(50% + 20px);
-  left: 50%;
-  width: 230px;
-  height: 180px;
+  left: calc(50% - 12px);
+  width: 205px;
+  height: 160px;
   transform: translate(-50%, -50%);
   background: url("/figma-assets/compliance-bot/mascot-grid-pattern.svg")
-    center / 230px 155px no-repeat;
+    center / 205px 138px no-repeat;
   filter:
     drop-shadow(0 0 3px rgb(148 58 250 / 90%))
     drop-shadow(0 0 12px rgb(127 0 187 / 75%));
-  mask: url("/figma-assets/compliance-bot/hero-decoration.svg") center / 230px
-    180px no-repeat;
+  mask: url("/figma-assets/compliance-bot/hero-decoration.svg") center / 205px
+    160px no-repeat;
 }
 
 .compliance-bot-mascot img {
