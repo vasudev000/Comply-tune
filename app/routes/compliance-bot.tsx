@@ -1,4 +1,9 @@
-import { useRef, useState, type FormEvent } from "react";
+import {
+  useRef,
+  useState,
+  type CSSProperties,
+  type FormEvent,
+} from "react";
 
 import { DashboardShell } from "@/components/dashboard/DashboardShell";
 import { AppButton } from "@/components/dashboard/Buttons";
@@ -11,17 +16,20 @@ const assetRoot = "/figma-assets/compliance-bot";
 const suggestedTopics = [
   {
     title: "Environmental Compliance",
-    description: "Regulations aimed at reduce environmental impact",
+    descriptionLines: ["Regulations aimed at reduce", "environmental impact"],
+    descriptionWidth: 179,
     illustration: "environmental.svg",
   },
   {
     title: "Data Privacy Compliance",
-    description: "Ensure your data handling meets privacy regulations.",
+    descriptionLines: ["Ensure your data handling", "meets privacy regulations."],
+    descriptionWidth: 163,
     illustration: "privacy.svg",
   },
   {
     title: "User Consent Management",
-    description: "Track and manage user consent for data usage.",
+    descriptionLines: ["Track and manage user", "consent for data usage."],
+    descriptionWidth: 146,
     illustration: "consent.svg",
   },
 ];
@@ -38,7 +46,8 @@ export function meta() {
 
 function SuggestionCard({
   title,
-  description,
+  descriptionLines,
+  descriptionWidth,
   illustration,
   onSelect,
 }: (typeof suggestedTopics)[number] & { onSelect: () => void }) {
@@ -49,10 +58,15 @@ function SuggestionCard({
       onClick={onSelect}
       aria-label={`Ask about ${title}`}
     >
-      <span className="compliance-suggestion__copy">
+      <span
+        className="compliance-suggestion__copy"
+        style={{ "--description-width": `${descriptionWidth}px` } as CSSProperties}
+      >
         <span className="compliance-suggestion__title">{title}</span>
         <span className="compliance-suggestion__description">
-          {description}
+          {descriptionLines.map((line) => (
+            <span key={line}>{line}</span>
+          ))}
         </span>
       </span>
       <span className="compliance-document" aria-hidden="true">

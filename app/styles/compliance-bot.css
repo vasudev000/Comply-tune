@@ -262,9 +262,11 @@
 
 .compliance-suggestion {
   position: relative;
-  display: block;
+  display: flex;
   min-width: 0;
   height: 132px;
+  align-items: flex-start;
+  justify-content: flex-start;
   overflow: hidden;
   padding: 20px;
   border: 1px solid #292929;
@@ -291,9 +293,11 @@
   position: relative;
   z-index: 1;
   display: flex;
-  width: min(100%, 196px);
+  width: min(100%, var(--description-width, 196px));
+  align-self: flex-start;
   flex-direction: column;
   gap: 10px;
+  margin: 0;
 }
 
 .compliance-suggestion__title {
@@ -305,6 +309,8 @@
 }
 
 .compliance-suggestion__description {
+  display: flex;
+  flex-direction: column;
   color: #8997a1;
   font-family: var(--ds-font-sans);
   font-size: 13px;
