@@ -72,16 +72,7 @@ function SuggestionCard({
         </span>
       </span>
       <span className="compliance-document" aria-hidden="true">
-        <span className="compliance-document__back" />
-        <span className="compliance-document__front">
-          <img src={`${assetRoot}/${illustration}`} alt="" />
-          <span className="compliance-document__lines">
-            <i />
-            <i />
-            <i />
-            <i />
-          </span>
-        </span>
+        <img src={`${assetRoot}/${illustration}`} alt="" />
       </span>
     </button>
   );
